@@ -1,21 +1,21 @@
 import os
 
-def list_files_and_directories(directory_path):
+def list_files_and_directories(path):
     try:
-        # List files and directories in the specified path
-        contents = os.listdir(directory_path)
+        
+        contents = os.listdir(path)
 
-        print(f"Contents of {directory_path}:")
+        print(f"Contents of {path}:")
         for item in contents:
             print(item)
 
     except FileNotFoundError:
         print("Directory not found.")
 
-def create_directory(directory_path):
+def create_directory(path):
     try:
         new_dir_name = input("Enter the name of the new directory: ")
-        new_dir_path = os.path.join(directory_path, new_dir_name)
+        new_dir_path = os.path.join(path, new_dir_name)
         os.makedirs(new_dir_path)
         print(f"Directory '{new_dir_name}' created successfully.")
 
@@ -58,11 +58,11 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == '1':
-        directory_path = input("Enter a directory path: ")
-        list_files_and_directories(directory_path)
+        path = input("Enter a directory path: ")
+        list_files_and_directories(path)
     elif choice == '2':
-        directory_path = input("Enter a directory path: ")
-        create_directory(directory_path)
+        path = input("Enter a directory path: ")
+        create_directory(path)
     elif choice == '3':
         file_path = input("Enter the path of the file to delete: ")
         delete_file(file_path)
