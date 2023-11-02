@@ -1,4 +1,5 @@
 import os
+import shutil
 
 def list_files_and_directories(path):
     try:
@@ -27,7 +28,8 @@ def create_directory(path):
 
 def delete_file(filename):
     try:
-        os.remove(filename)
+        #os.remove(filename)
+        shutil.rmtree(filename)
         print("File " + filename + " deleted successfully.")
     except FileNotFoundError:
         print("File not found.")
